@@ -58,9 +58,34 @@ namespace export_excel
             var numNameAvailable = int.TryParse(monthInStr, out int monthInNumber);
             var sheetNameStr = $"Tháng {monthInStr}";
             var sheetNameNum = $"Tháng {monthInNumber}";
-            //WorkBook wb = WorkBook.Load(resultFilePathTxt.Text);
 
-            //var ws = wb.GetWorkSheet();
+            WorkBook wb = WorkBook.Load(resultFilePathTxt.Text);
+
+            WorkSheet ws = wb.GetWorkSheet(sheetNameStr) ?? wb.GetWorkSheet(sheetNameNum);
+            if(ws == null)
+            {
+                //todo
+            }
+
+            int r_index = 2;
+            var maxRow = ws.Rows.Count();
+            var needRowCount = data.Items.Sum(s => s.DsHangHoa.Count());
+            
+            if(maxRow < needRowCount)
+            {
+                var addMoreCount = needRowCount - maxRow + 5;
+                ws.InsertRows(maxRow - 1, addMoreCount);
+                var aa = ws.Rows.Count();
+                wb.Save();
+                var aaa = ws.Rows.Count();
+                ws = wb.GetWorkSheet(sheetNameStr) ?? wb.GetWorkSheet(sheetNameNum);
+            }
+            var a = ws.Rows.Count();
+            foreach (var item in data.Items)
+            {
+
+            }
+            //wb.GetWorkSheet();
         }
     }
 }

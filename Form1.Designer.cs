@@ -101,6 +101,7 @@
             this.runBtn.TabIndex = 2;
             this.runBtn.Text = "Ghi";
             this.runBtn.UseVisualStyleBackColor = true;
+            this.runBtn.Click += new System.EventHandler(this.runBtn_Click);
             // 
             // openFileDialogCrawl
             // 

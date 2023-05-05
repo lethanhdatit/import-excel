@@ -69,7 +69,12 @@ namespace export_excel
 
                 if (ws == null)
                 {
-                    //todo
+                    //var a = Convert.ToBase64String(wb.ToBinary());
+                    var templateWb = WorkBook.Load(Convert.FromBase64String(Binary.WorkbookTemplate));
+                    templateWb.DefaultWorkSheet.CopyTo(wb, numNameAvailable ? sheetNameNum : sheetNameStr);
+                    wb.Save();
+                    templateWb.Close();
+                    ws = wb.GetWorkSheet(sheetNameStr) ?? wb.GetWorkSheet(sheetNameNum);
                 }
 
                 int r_index = 2;

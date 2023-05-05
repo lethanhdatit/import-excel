@@ -52,6 +52,7 @@
             // 
             this.crawlFilePathTxt.Location = new System.Drawing.Point(141, 27);
             this.crawlFilePathTxt.Name = "crawlFilePathTxt";
+            this.crawlFilePathTxt.ReadOnly = true;
             this.crawlFilePathTxt.Size = new System.Drawing.Size(521, 27);
             this.crawlFilePathTxt.TabIndex = 1;
             // 
@@ -78,6 +79,7 @@
             // 
             this.resultFilePathTxt.Location = new System.Drawing.Point(141, 69);
             this.resultFilePathTxt.Name = "resultFilePathTxt";
+            this.resultFilePathTxt.ReadOnly = true;
             this.resultFilePathTxt.Size = new System.Drawing.Size(521, 27);
             this.resultFilePathTxt.TabIndex = 1;
             // 
@@ -89,6 +91,7 @@
             this.resultFilePathBtn.TabIndex = 2;
             this.resultFilePathBtn.Text = "Chọn";
             this.resultFilePathBtn.UseVisualStyleBackColor = true;
+            this.resultFilePathBtn.Click += new System.EventHandler(this.resultFilePathBtn_Click);
             // 
             // runBtn
             // 
